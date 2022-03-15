@@ -30,7 +30,7 @@ export default function App() {
                 <div className="row">
                 <div className="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
                     <div className="about-img">
-                    <img src="assets/img/about.jpg" alt="" />
+                    <img src="./user/assets/img/about.jpg" alt="" />
                     </div>
                 </div>
                 <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
