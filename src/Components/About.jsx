@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function About() {
   return (
     <div>
-        <section class="breadcrumbs">
-            <div class="container">
-                <div class="d-flex justify-content-between align-items-center">
-                <h2>ABOUT-RESTAURANTLY</h2>
+        <section className="breadcrumbs">
+            <div className="container">
+                <div className="d-flex justify-content-between align-items-center">
+                <h7>ABOUT-RESTAURANTLY</h7>
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><Link to={'/'} >Home</Link></li>
                     <li>About</li>
                 </ol>
                 </div>
@@ -17,8 +18,8 @@ export default function About() {
         </section> 
         {/* breadcrumbs end here */}
 
-        <section class="inner-page">
-        <div class="container">
+        <section className="inner-page">
+        <div className="container">
         <section id="about" className="about">
             <div className="container" data-aos="fade-up">
 

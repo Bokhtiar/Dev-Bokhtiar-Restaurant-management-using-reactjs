@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Nav } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
@@ -32,7 +32,7 @@ export default function Header() {
             <ul>
               <li><Link to={'/'} className="nav-link scrollto active">Home</Link></li>
               <li><Link to={'/about'} className="nav-link scrollto">About</Link></li>
-              <li><a className="nav-link scrollto" href="#menu">Menu</a></li>
+              <li><Link to={'/menu'} className="nav-link scrollto">Menu</Link></li>
               <li><a className="nav-link scrollto" href="#specials">Specials</a></li>
               <li><a className="nav-link scrollto" href="#events">Events</a></li>
               <li><a className="nav-link scrollto" href="#chefs">Chefs</a></li>
