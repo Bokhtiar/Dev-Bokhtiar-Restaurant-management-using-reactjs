@@ -52,23 +52,19 @@ export default function List() {
                         </div>
 
                         <div className="row menu-container" data-aos="fade-up" data-aos-delay="200">
-
-                        {
-                            Products.map((item, index)=>
-                            <div className="col-lg-6 menu-item ">
-                            <img src="./user/assets/img/menu/lobster-bisque.jpg" className="menu-img" alt=""/>
-                            <div className="menu-content">
-                            <a href="#">{item.title}</a><span>$5.95</span>
-                            </div>
-                            <div className="menu-ingredients">
-                            {item.description}
-                            </div>
-                            </div>
-                            )
-                        }
-
-                        
-
+                            {
+                                Products.map((item, index)=>
+                                <div className="col-lg-6 menu-item ">
+                                <img src="./user/assets/img/menu/lobster-bisque.jpg" className="menu-img" alt=""/>
+                                <div className="menu-content">
+                                <Link to={`/product/detail/${item.id}`} >{item.title}</Link><span>${item.price}</span>
+                                </div>
+                                <div className="menu-ingredients">
+                                {item.description}
+                                </div>
+                                </div>
+                                )
+                            }
                         </div>
 
                     </div>

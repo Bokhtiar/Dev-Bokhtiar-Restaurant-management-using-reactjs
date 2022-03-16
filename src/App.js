@@ -11,6 +11,8 @@ import Footer from "./Components/Layouts/Footer";
 import Home from "./Components/Home";
 import About from './Components/About';
 import List from './Components/Modules/Menu/List';
+import SingleProduct from './Components/Modules/Menu/SingleProduct';
+
 
 export default function App() {
   return (
@@ -21,8 +23,9 @@ export default function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/menu" element={<List />}></Route>
+        <Route path="/product/detail/:id" element={ <SingleProduct /> }></Route>
       </Routes>
-      <Footer />
+      
      </BrowserRouter>
     </div>
   )
