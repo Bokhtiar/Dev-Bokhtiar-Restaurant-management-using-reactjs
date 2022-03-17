@@ -57,7 +57,7 @@ export default function Header() {
             </ul>
             <i className="bi bi-list mobile-nav-toggle"></i>
           </nav>
-          <a href="#book-a-table" className="book-a-table-btn scrollto d-none d-lg-flex">Book a table</a>
+          <Link to={'/table/book'} className="book-a-table-btn scrollto d-none d-lg-flex">Book a table</Link>
 
         </div>
       </header>

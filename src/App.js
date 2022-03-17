@@ -13,6 +13,7 @@ import About from './Components/About';
 import List from './Components/Modules/Menu/List';
 import SingleProduct from './Components/Modules/Menu/SingleProduct';
 import EventList from './Components/Modules/event/EventList';
+import TableBook from './Components/Modules/booking/TableBook';
 
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/menu" element={<List />}></Route>
         <Route path="/product/detail/:id" element={ <SingleProduct /> }></Route>
         <Route path="/event" element={<EventList />}></Route>
+        <Route path="/table/book" element={<TableBook />}></Route>
         
       </Routes>
       
