@@ -24,7 +24,7 @@ export default function Header() {
       <header id="header" className="fixed-top d-flex align-items-cente">
         <div className="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-          <h1 className="logo me-auto me-lg-0"><a href="index.html">Restaurantly</a></h1>
+          <h1 className="logo me-auto me-lg-0"><Link to={'/'}>Restaurantly</Link></h1>
 
           <a href="index.html" className="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" className="img-fluid"/></a>
 
@@ -35,23 +35,11 @@ export default function Header() {
               <li><Link to={'/menu'} className="nav-link scrollto">Menu</Link></li>
               <li><Link to={'/event'} className="nav-link scrollto">Events</Link></li>
               <li><a className="nav-link scrollto" href="#gallery">Gallery</a></li>
-              {/* <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
+              <li className="dropdown"><a href="#"><span>Dashboard</span> <i className="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><a href="#">Drop Down 1</a></li>
-                  <li className="dropdown"><a href="#"><span>Deep Drop Down</span> <i className="bi bi-chevron-right"></i></a>
-                    <ul>
-                      <li><a href="#">Deep Drop Down 1</a></li>
-                      <li><a href="#">Deep Drop Down 2</a></li>
-                      <li><a href="#">Deep Drop Down 3</a></li>
-                      <li><a href="#">Deep Drop Down 4</a></li>
-                      <li><a href="#">Deep Drop Down 5</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Drop Down 2</a></li>
-                  <li><a href="#">Drop Down 3</a></li>
-                  <li><a href="#">Drop Down 4</a></li>
+                  <li><Link to={'/dashboard'}>Dashboard</Link></li>
                 </ul>
-              </li> */}
+              </li>
               <li><Link to={'contact'} className="nav-link scrollto">Contact</Link></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle"></i>
