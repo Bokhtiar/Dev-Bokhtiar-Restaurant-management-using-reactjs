@@ -12,6 +12,7 @@ import Home from "./Components/Home";
 import About from './Components/About';
 import List from './Components/Modules/Menu/List';
 import SingleProduct from './Components/Modules/Menu/SingleProduct';
+import EventList from './Components/Modules/event/EventList';
 
 
 export default function App() {
@@ -24,6 +25,8 @@ export default function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/menu" element={<List />}></Route>
         <Route path="/product/detail/:id" element={ <SingleProduct /> }></Route>
+        <Route path="/event" element={<EventList />}></Route>
+        
       </Routes>
       
      </BrowserRouter>

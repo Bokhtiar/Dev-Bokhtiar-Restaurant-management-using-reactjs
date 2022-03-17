@@ -33,8 +33,7 @@ export default function Header() {
               <li><Link to={'/'} className="nav-link scrollto active">Home</Link></li>
               <li><Link to={'/about'} className="nav-link scrollto">About</Link></li>
               <li><Link to={'/menu'} className="nav-link scrollto">Menu</Link></li>
-              <li><a className="nav-link scrollto" href="#specials">Specials</a></li>
-              <li><a className="nav-link scrollto" href="#events">Events</a></li>
+              <li><Link to={'/event'} className="nav-link scrollto">Events</Link></li>
               <li><a className="nav-link scrollto" href="#chefs">Chefs</a></li>
               <li><a className="nav-link scrollto" href="#gallery">Gallery</a></li>
               <li className="dropdown"><a href="#"><span>Drop Down</span> <i className="bi bi-chevron-down"></i></a>
