@@ -9,7 +9,7 @@ export default function Login() {
     const formSubmit=(e)=>{
         e.preventDefault();
 
-        axios.post('Access-Control-Allow-Origin', 'http://localhost:8000/api/login', {
+        axios.post('/login', {
             email: email,
             password: password,
           })

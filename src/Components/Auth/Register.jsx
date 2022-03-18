@@ -1,7 +1,27 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Register() {
+    const [name, setName]= useState('')
+    const [password, setPassword]= useState('')
+    const [email, setEmail] = useState('')
+
+
+    const RegisterSubmit=(e)=>{
+        e.preventDefault();
+        axios.post('/register', {
+            email: email,
+            password: password,
+            name: name,
+          })
+          .then( (response) =>{
+            console.log(response.data);
+          })
+          .catch( (error)=> {
+            console.log(error);
+          });
+    }
   return (
     <div>
        <section className="breadcrumbs">
@@ -37,24 +57,26 @@ export default function Register() {
                 <section>
                     <div className="row justify-content-center">
                         <div className="col-md-6">
-                            <h2 className='text-center mb-4'>Register Form</h2>
-                            <div className="form-group">
-                                <label htmlFor="">Enter Your Name</label>
-                                <input className='form-control' placeholder='enter your name' type="text" name="" id="" />
-                            </div>
+                            <form action="" onSubmit={RegisterSubmit}>
+                                <h2 className='text-center mb-4'>Register Form</h2>
+                                <div className="form-group">
+                                    <label htmlFor="">Enter Your Name</label>
+                                    <input className='form-control' onChange={(e)=>{setName(e.target.value)}} placeholder='enter your name' type="text" name="name" id="" />
+                                </div>
 
-                            <div className="form-group">
-                                <label htmlFor="">Enter Your E-mail</label>
-                                <input className='form-control' placeholder='enter your name' type="email" name="" id="" />
-                            </div>
-                            
-                            <div className="form-group my-3">
-                                <label htmlFor="">Enter Your Password</label>
-                                <input className='form-control' type="password" placeholder='enter your password' name="" id="" />
-                            </div>
-                            <div className="mt-2">
-                            <div className="text-center"><button className='btn btn-success' type="submit">Login</button></div>
-                            </div>
+                                <div className="form-group">
+                                    <label htmlFor="">Enter Your E-mail</label>
+                                    <input className='form-control' onChange={(e)=>{setEmail(e.target.value)}} placeholder='enter your name' type="email" name="email" id="" />
+                                </div>
+                                
+                                <div className="form-group my-3">
+                                    <label htmlFor="">Enter Your Password</label>
+                                    <input className='form-control' onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder='enter your password' name="password" id="" />
+                                </div>
+                                <div className="mt-2">
+                                <div className="text-center"><button className='btn btn-success' type="submit">Login</button></div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </section>
