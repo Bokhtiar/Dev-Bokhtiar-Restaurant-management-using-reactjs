@@ -38,6 +38,8 @@ export default function Header() {
               <li className="dropdown"><a href="#"><span>Dashboard</span> <i className="bi bi-chevron-down"></i></a>
                 <ul>
                   <li><Link to={'/dashboard'}>Dashboard</Link></li>
+                  <li><Link to={'/login'}>Login</Link></li>
+                  <li><Link to={'/register'}>Register</Link></li>
                 </ul>
               </li>
               <li><Link to={'contact'} className="nav-link scrollto">Contact</Link></li>

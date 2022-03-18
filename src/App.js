@@ -16,6 +16,8 @@ import EventList from './Components/Modules/event/EventList';
 import TableBook from './Components/Modules/booking/TableBook';
 import Contact from './Components/Contact';
 import Index from './Components/Modules/dashboard/Index';
+import Login from './Components/Auth/Login';
+import Register from './Components/Auth/Register';
 
 
 export default function App() {
@@ -32,6 +34,8 @@ export default function App() {
             <Route path="/table/book" element={<TableBook />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
             {/* dashboard */}
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
             <Route path="/dashboard" element={<Index />}></Route>
           </Routes>
         <Footer/>
