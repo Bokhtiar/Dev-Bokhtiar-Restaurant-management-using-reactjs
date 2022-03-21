@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,Redirect } from 'react-router-dom'
+
+
 
 export default function Login() {
     const [email, setEmail] = useState("")
@@ -13,13 +15,22 @@ export default function Login() {
             email: email,
             password: password,
           })
-          .then( (response) =>{
-            console.log(response);
+          .then((response) =>{
+            localStorage.setItem('token', response.data.token);
+            if(localStorage.getItem('token')){
+               
+            }else{
+               
+            }
+            
           })
           .catch( (error)=> {
             console.log(error);
           });
     }
+    
+//do something...
+
     return (
         <div>
             <section className="breadcrumbs">
@@ -72,7 +83,6 @@ export default function Login() {
                                     </div>
                                 </div>
                             </section>
-
                         </div>
                     </section>
                 </div>
