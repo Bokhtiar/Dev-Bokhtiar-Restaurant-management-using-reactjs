@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getCategory } from './Service/Category';
 
 export default function App() {
+
+    const [categories, setCategory] = useState(['']);
+
+    useEffect(() => {
+        categoryList();
+      }, []);
+
+      const categoryList = async()=>{
+        let CategoryServiceList = await getCategory();
+        setCategory(CategoryServiceList)
+      }
+
   return (
     <div>
         <section id="hero" className="d-flex align-items-center">
@@ -100,10 +113,45 @@ export default function App() {
 
             <!-- ======= Menu Section ======= --> */}
            
+
+           <section id="menu" class="menu section-bg">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                <h2>Menu</h2>
+                <p>Check Our Tasty Menu</p>
+                </div>
+
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="menu-flters">
+                    <li data-filter="*" class="filter-active">All</li>
+                    {
+                        categories.map((category, index)=>
+                            <li data-filter=".{category.category_name}">{category.category_name}</li>
+                        )
+                    }
+                    </ul>
+                </div>
+                </div>
+
+                <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="col-lg-6 menu-item filter-starters">
+                        <img src="./user/assets/img/menu/lobster-bisque.jpg" class="menu-img" alt=""/>
+                        <div class="menu-content">
+                        <a href="#">Lobster Bisque</a><span>$5.95</span>
+                        </div>
+                        <div class="menu-ingredients">
+                        Lorem, deren, trataro, filede, nerada
+                        </div>
+                    </div>
+                </div>
+
+      </div>
+    </section>
+
+
             {/* <!-- End Menu Section -->
-
-           
-
             <!-- ======= Events Section ======= --> */}
             <section id="events" className="events">
             <div className="container" data-aos="fade-up">
@@ -209,6 +257,8 @@ export default function App() {
             {/* <!-- End Events Section -->
 
             <!-- ======= Book A Table Section ======= --> */}
+
+
             <section id="book-a-table" className="book-a-table">
             <div className="container" data-aos="fade-up">
 
