@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getCategory } from './Service/Category';
+import { getProduct } from './Service/Product';
 
 export default function App() {
 
     const [categories, setCategory] = useState(['']);
+    const [products, setProduct] = useState(['']);
 
     useEffect(() => {
         categoryList();
+        productList();
       }, []);
 
       const categoryList = async()=>{
@@ -15,6 +18,12 @@ export default function App() {
         setCategory(CategoryServiceList)
       }
 
+      const productList = async() => {
+        let ProductServiceList = await getProduct();
+        setProduct(ProductServiceList)
+      }
+
+      console.log('product', products)
   return (
     <div>
         <section id="hero" className="d-flex align-items-center">
@@ -128,7 +137,7 @@ export default function App() {
                     <li data-filter="*" class="filter-active">All</li>
                     {
                         categories.map((category, index)=>
-                            <li data-filter=".{category.category_name}">{category.category_name}</li>
+                            <li data-filter={"."+(category.category_id)} title={"category " + (category.category_id)}>{category.category_name}</li>
                         )
                     }
                     </ul>
@@ -136,15 +145,20 @@ export default function App() {
                 </div>
 
                 <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
-                    <div class="col-lg-6 menu-item filter-starters">
-                        <img src="./user/assets/img/menu/lobster-bisque.jpg" class="menu-img" alt=""/>
-                        <div class="menu-content">
-                        <a href="#">Lobster Bisque</a><span>$5.95</span>
-                        </div>
-                        <div class="menu-ingredients">
-                        Lorem, deren, trataro, filede, nerada
-                        </div>
-                    </div>
+                    {
+                        products.map((product, index)=>
+                        <div className={"col-lg-6 menu-item"+(product.category_id)}>
+                            <img src="./user/assets/img/menu/lobster-bisque.jpg" class="menu-img" alt=""/>
+                            <div class="menu-content">
+                            <a href="#">{product.product_name}</a><span>${product.price}</span>
+                            </div>
+                            <div class="menu-ingredients">
+                                { product.description }
+                            </div>
+                        </div> 
+                        )
+                    }
+                   
                 </div>
 
       </div>

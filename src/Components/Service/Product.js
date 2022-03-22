@@ -2,9 +2,9 @@ import axios from "axios";
 
 export const getProduct = async() =>{
     let product = [];
-    await axios.get('https://fakestoreapi.com/products')
+    await axios.get('/product/list')
     .then(response => {
-        product = response.data
+        product = response.data.products
     })
     return product
 }
