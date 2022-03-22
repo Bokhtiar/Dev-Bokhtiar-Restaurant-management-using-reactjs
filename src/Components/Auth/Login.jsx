@@ -4,9 +4,11 @@ import { Link,Redirect } from 'react-router-dom'
 
 
 
+
 export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
 
     const formSubmit=(e)=>{
         e.preventDefault();
@@ -18,7 +20,8 @@ export default function Login() {
           .then((response) =>{
             localStorage.setItem('token', response.data.token);
             if(localStorage.getItem('token')){
-               
+                console.log('success');
+                     
             }else{
                
             }
