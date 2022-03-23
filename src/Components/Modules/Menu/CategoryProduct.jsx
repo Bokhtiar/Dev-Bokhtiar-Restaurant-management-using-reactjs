@@ -34,7 +34,7 @@ export default function List() {
 						
 						{
 							categories.map((category, index)=>
-								<p><Link className='form-inline h6 ' to={`/category/product/${category.category_id}`}> <img className='zoom' height={20} width={20} src="./user/assets/img/specials-3.png" alt="" /> &nbsp; 
+								<p><Link className='form-inline h6' to={`/category/product/${category.category_id}`}> <img className='zoom' height={20} width={20} src="./user/assets/img/specials-3.png" alt="" /> &nbsp; 
 								{category.category_name} &nbsp;&nbsp; (20)
 								</Link> </p>
 							)

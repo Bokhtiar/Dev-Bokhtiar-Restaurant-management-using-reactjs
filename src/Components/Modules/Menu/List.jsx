@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getCategory } from '../../Service/Category';
@@ -25,6 +26,20 @@ export default function List() {
 
 	console.log(categories)
 
+	const OnclickcategoryProduct = (id)=>{
+		console.log(id)
+    //    axios.get(`/category/product/${id}`).then((response)=>{
+	// 	   console.log(response.data.product)
+	//    })
+	axios.get('/category/product', {
+		params: {
+		  id: id
+		}
+	  })
+	  .then(function (response) {
+		setProducts(response.data.products)
+	  })
+    }
     return (
         <section className='container my-4'>
 			<div className="row">
@@ -34,9 +49,9 @@ export default function List() {
 						
 						{
 							categories.map((category, index)=>
-								<p><Link className='form-inline h6 ' to={`/category/product/${category.category_id}`}> <img className='zoom' height={20} width={20} src="./user/assets/img/specials-3.png" alt="" /> &nbsp; 
+								<p><a className='form-inline h6 ' onClick={() => OnclickcategoryProduct(category.category_id)}> <img className='zoom' height={20} width={20} src="./user/assets/img/specials-3.png" alt="" /> &nbsp; 
 								{category.category_name} &nbsp;&nbsp; (20)
-								</Link> </p>
+								</a> </p>
 							)
 						}
 						
