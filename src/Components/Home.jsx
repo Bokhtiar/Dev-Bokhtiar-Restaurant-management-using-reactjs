@@ -121,8 +121,6 @@ export default function App() {
             {/* <!-- End Why Us Section -->
 
             <!-- ======= Menu Section ======= --> */}
-           
-
            <section id="menu" class="menu section-bg">
             <div class="container" data-aos="fade-up">
 
@@ -162,7 +160,7 @@ export default function App() {
                 </div>
 
       </div>
-    </section>
+            </section>
 
 
             {/* <!-- End Menu Section -->
