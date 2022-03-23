@@ -6,16 +6,17 @@ import { getSingleProduct } from '../../Service/Product'
 
 export default function SingleProduct() {
     const {id} = useParams()
+    console.log('id',id);
 
     const [product, setProduct] = useState([])
-    useEffect(()=>{
-        ProductDetail();
-    },[])
+    // useEffect(()=>{
+    //     ProductDetail();
+    // },[])
 
-    const ProductDetail = async()=>{
-        const productsingle = await getSingleProduct(id)
-        setProduct(productsingle)
-    }
+    // const ProductDetail = async()=>{
+    //     const productsingle = await getSingleProduct(id)
+    //     setProduct(productsingle)
+    // }
 
 
   return (

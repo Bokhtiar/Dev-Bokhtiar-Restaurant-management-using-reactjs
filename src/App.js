@@ -11,7 +11,9 @@ import Footer from "./Components/Layouts/Footer";
 import Home from "./Components/Home";
 import About from './Components/About';
 import List from './Components/Modules/Menu/List';
+import CategoryProduct from './Components/Modules/Menu/CategoryProduct';
 import SingleProduct from './Components/Modules/Menu/SingleProduct';
+
 import EventList from './Components/Modules/event/EventList';
 import TableBook from './Components/Modules/booking/TableBook';
 import Contact from './Components/Contact';
@@ -30,6 +32,8 @@ export default function App() {
             <Route path="/about" element={<About />}></Route>
             <Route path="/menu" element={<List />}></Route>
             <Route path="/product/detail/:id" element={ <SingleProduct /> }></Route>
+            <Route path="/category/product/:id" element={ <CategoryProduct /> }></Route>
+            
             <Route path="/event" element={<EventList />}></Route>
             <Route path="/table/book" element={<TableBook />}></Route>
             <Route path="/contact" element={<Contact />}></Route>

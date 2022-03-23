@@ -9,15 +9,15 @@ export const getProduct = async() =>{
     return product
 }
 
-export const getSingleProduct = async(props)=> {
+export const getCategoryProduct = async(props)=> {
     console.log('s', props)
-    let productsingle =[];
-    await axios.get(`https://fakestoreapi.com/products/${props}`)
+    let categoryProduct =[];
+    await axios.get(`category/product/${props}`)
     .then(response =>{
-        productsingle = response.data
-        console.log('ProductDetail',productsingle)
+        categoryProduct = response.data.products
+        console.log('category_product',categoryProduct)
     })
-    return productsingle;
+    return categoryProduct;
 
 }
 

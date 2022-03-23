@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getCategory } from '../../Service/Category';
-import { getProduct } from '../../Service/Product';
+import { getCategoryProduct } from '../../Service/Product';
+import {  useParams } from 'react-router-dom'
 
 export default function List() {
-
-	
-
+    const {id} = useParams()
 	const [categories , setCategories] = useState([''])
 	const [products, setProducts] = useState([''])
+    
 	useEffect(()=>{
 		CategoryLit();
-		ProductList();
+		CategoryProductList();
 	},[]);
 
 	const CategoryLit =async()=>{
 		let CategoriesServiceList = await getCategory();
 		setCategories(CategoriesServiceList)
-	}
-	const ProductList = async()=>{
-		let ProductServiceList = await getProduct();
-		setProducts(ProductServiceList)
-	}
+	};
+	const CategoryProductList = async()=>{
+		let CategoryProductServiceList = await getCategoryProduct(id);
+		setProducts(CategoryProductServiceList)
+	};
+    console.log('pro', products);
 
-	console.log(categories)
 
     return (
         <section className='container my-4'>
@@ -51,7 +51,7 @@ export default function List() {
 									products.map((product, index)=>
 										<div className="col-6 col-sm-6 col-md-3 col-lg-3 my-2">
 											<div className='card' style={{width: '12rem', background:'black'}}>
-												<img className="card-img-top container zoom" src="./user/assets/img/specials-3.png" alt="Card image cap"/>
+												<img className="card-img-top container zoom" src="../user/assets/img/specials-3.png" alt="Card image cap"/>
 												<div className="card-body text-center">
 												<a href="#"> {product.product_name}</a> <br />
 													<a href="#" className="btn btn-sm btn-outline-dark text-light">
