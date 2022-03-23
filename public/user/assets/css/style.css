@@ -1511,3 +1511,44 @@ section {
   font-size: 13px;
   color: #fff;
 }
+
+
+/* product horizontal line  */
+.horizontal-meuns-line{
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #cda45e; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+}
+.horizontal-meuns-line span { 
+  background-color: black; 
+  padding:0 10px; 
+}
+
+.horizontal-category{
+  width: 100%; 
+  text-align: center; 
+  border-bottom: 1px solid #cda45e; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+}
+.horizontal-category span { 
+  background-color: black; 
+  padding:0 10px; 
+}
+.border-category {
+  border: 1px solid #cda45e;
+}
+
+
+/* product zoom */
+.zoom {
+  transition: transform .2s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+

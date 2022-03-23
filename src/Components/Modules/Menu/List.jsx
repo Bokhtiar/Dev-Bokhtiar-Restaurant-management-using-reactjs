@@ -5,6 +5,8 @@ import { getProduct } from '../../Service/Product';
 
 export default function List() {
 
+	
+
 	const [categories , setCategories] = useState([''])
 	const [products, setProducts] = useState([''])
 	useEffect(()=>{
@@ -27,12 +29,12 @@ export default function List() {
         <section className='container my-4'>
 			<div className="row">
 				<div className="col-sm-12 col-md-3 col-lg-3 col-12">
-					<h4 className='text-center'>Categories Menu</h4>
-					<div className="border container py-3">
+					<h4 className='text-center horizontal-category'><span>Categories</span></h4>
+					<div className="border-category container py-3">
 						
 						{
 							categories.map((category, index)=>
-								<p><a className='form-inline h6 '  href=""> <img height={20} width={20} src="./user/assets/img/gallery/gallery-1.jpg" alt="" /> &nbsp; 
+								<p><a className='form-inline h6 '  href=""> <img className='zoom' height={20} width={20} src="./user/assets/img/specials-3.png" alt="" /> &nbsp; 
 								{category.category_name} &nbsp;&nbsp; (20)
 								</a> </p>
 							)
@@ -42,19 +44,19 @@ export default function List() {
 				</div> 
 				{/* category list end  */}
 				<div className="col-sm-12 col-md-9 col-lg-9 col-12">
-				<h4 className='text-center'>Our Menu's</h4>
+				<h4 className='text-center horizontal-meuns-line'> <span>Our Menu's</span></h4>
 						<section>
 							<div className="row">
 								{
 									products.map((product, index)=>
-										<div className="col-12 col-sm-6 col-md-3 col-lg-3 my-2">
+										<div className="col-6 col-sm-6 col-md-3 col-lg-3 my-2">
 											<div className='card' style={{width: '12rem', background:'black'}}>
-												<img className="card-img-top container" src="./user/assets/img/specials-3.png" alt="Card image cap"/>
+												<img className="card-img-top container zoom" src="./user/assets/img/specials-3.png" alt="Card image cap"/>
 												<div className="card-body text-center">
 												<a href="#"> {product.product_name}</a> <br />
-													<a href="#" className="btn btn-sm btn-primary">
+													<a href="#" className="btn btn-sm btn-outline-dark text-light">
 													<i class="bx bxl-twitter"></i>
-														</a> <a href="" className='btn btn-sm btn-info'><i class="bx bxl-twitter"></i></a> <a href="" className='btn btn-sm btn-danger'><i class="bx bxl-twitter"></i></a>
+														</a> <a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a> <a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a>
 												</div>
 											</div>
 										</div>
