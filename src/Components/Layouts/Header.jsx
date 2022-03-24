@@ -28,6 +28,7 @@ export default function Header() {
                 </ul>
               </li>
               <li><Link to={'contact'} className="nav-link scrollto">Contact</Link></li>
+              <li><Link to={'cart'} className="nav-link scrollto">Cart</Link></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle"></i>
           </nav>
