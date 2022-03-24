@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom';
 import { getCart } from '../../Service/Cart';
 
 export default function CartList() {
-    let user_id = localStorage.getItem('user_id')
+
     const [carts, setCart] = useState([''])
     useEffect(()=>{
         CartList();
     },[])
 
     const CartList=async()=>{
-        let CartServiceList = await getCart(user_id)
+        let CartServiceList = await getCart()
         setCart(CartServiceList)
     }
-   
+   console.log('cartss', carts)
+
     const cartDelete =(id)=>{
         axios.get('/cart/delete', {
 			params: {
@@ -64,11 +65,11 @@ export default function CartList() {
                                             <a href=""><img src="./user/assets/img/specials-3.png" height={100} alt=""/></a>
                                         </td>
                                         <td className="cart_description">
-                                            <h4><a href="">{cart.product_id}</a></h4>
+                                            <h4><a href="">{cart.product.product_name}</a></h4>
                                             <p>Web ID: 1089772</p>
                                         </td>
                                         <td className="">
-                                            <p className='text-light'>$ {cart.product_id}</p>
+                                            <p className='text-light'>$ {cart.product.price}</p>
                                         </td>
                                         <td className="cart_quantity">
                                             <div className="cart_quantity_button">
@@ -78,7 +79,7 @@ export default function CartList() {
                                             </div>
                                         </td>
                                         <td className="cart_total">
-                                            <p className="text-light">$59</p>
+                                            <p className="text-light">${cart.product.price * cart.quantity}</p>
                                         </td>
                                         <td className="cart_delete">
                                             <button onClick={()=>cartDelete(cart.cart_id)} className="cart_quantity_delete" href=""><i className="fa fa-times"></i></button>
