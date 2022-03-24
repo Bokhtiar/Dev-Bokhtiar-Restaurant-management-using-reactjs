@@ -12,6 +12,7 @@ export const getCart = async(user_id) =>{
 			console.log(response.data.carts)
             carts = response.data.carts
 		})
+        console.log('cartsssss', carts)
 		
     return carts
     
