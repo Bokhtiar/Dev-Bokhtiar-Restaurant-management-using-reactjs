@@ -23,6 +23,8 @@ import Register from './Components/Auth/Register';
 
 
 export default function App() {
+
+
   return (
     <div>
       <BrowserRouter>    

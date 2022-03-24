@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Header() {
+  const token = localStorage.getItem('token')
   return (
       <div>
       <header id="header" className="fixed-top d-flex align-items-cente">
@@ -20,9 +21,10 @@ export default function Header() {
               <li><a className="nav-link scrollto" href="#gallery">Gallery</a></li>
               <li className="dropdown"><a href="#"><span>Dashboard</span> <i className="bi bi-chevron-down"></i></a>
                 <ul>
-                  <li><Link to={'/dashboard'}>Dashboard</Link></li>
-                  <li><Link to={'/login'}>Login</Link></li>
-                  <li><Link to={'/register'}>Register</Link></li>
+                  {
+                    (token) ? 
+                    <div><li><Link to={'/logout'}>Dashboard</Link></li> <li><Link to={'/logout'}>Profile</Link></li> <li><Link to={'/logout'}>Logout</Link></li></div> : <li><Link to={'/login'}>Login</Link></li>
+                  }
                 </ul>
               </li>
               <li><Link to={'contact'} className="nav-link scrollto">Contact</Link></li>

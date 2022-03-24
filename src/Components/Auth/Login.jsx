@@ -18,7 +18,10 @@ export default function Login() {
             password: password,
           })
           .then((response) =>{
+              console.log(response)
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user_id', response.data.user.id);
+            localStorage.setItem('email', response.data.user.email);
             if(localStorage.getItem('token')){
                 console.log('success');
                      
