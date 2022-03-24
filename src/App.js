@@ -20,6 +20,7 @@ import Contact from './Components/Contact';
 import Index from './Components/Modules/dashboard/Index';
 import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
+import Logout from './Components/Auth/Logout';
 
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/dashboard" element={<Index />}></Route>
+            <Route path="/logout" element={<Logout />}></Route>
           </Routes>
         <Footer/>
      </BrowserRouter>

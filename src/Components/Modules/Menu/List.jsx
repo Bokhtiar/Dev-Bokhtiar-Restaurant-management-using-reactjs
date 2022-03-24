@@ -27,19 +27,30 @@ export default function List() {
 	console.log(categories)
 
 	const OnclickcategoryProduct = (id)=>{
-		console.log(id)
-    //    axios.get(`/category/product/${id}`).then((response)=>{
-	// 	   console.log(response.data.product)
-	//    })
-	axios.get('/category/product', {
-		params: {
-		  id: id
-		}
-	  })
-	  .then(function (response) {
-		setProducts(response.data.products)
-	  })
-    }
+		axios.get('/category/product', {
+			params: {
+			id: id
+			}
+		})
+		.then(function (response) {
+			setProducts(response.data.products)
+		})
+		} 
+		// category ways product end 
+
+	const cart=((id)=>{
+		axios.post('/cart/store', {
+            'user_id' : localStorage.getItem('user_id'),
+            'product_id' : id,
+            'quantity' : 1,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+	})
     return (
         <section className='container my-4'>
 			<div className="row">
@@ -69,9 +80,9 @@ export default function List() {
 												<img className="card-img-top container zoom" src="./user/assets/img/specials-3.png" alt="Card image cap"/>
 												<div className="card-body text-center">
 												<a href="#"> {product.product_name}</a> <br />
-													<a href="#" className="btn btn-sm btn-outline-dark text-light">
-													<i class="bx bxl-twitter"></i>
-														</a> <a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a> <a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a>
+													<a  onClick={()=>cart(product.product_id)} className="btn btn-sm btn-outline-dark text-light">C</a>
+													<a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a>
+													<a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a>
 												</div>
 											</div>
 										</div>
