@@ -101,7 +101,9 @@ export default function CartList() {
                     </table>
                 </div>
             </div>
+            <Link to={'/order'}>Order Place</Link>
         </section> 
+         
 
         <section id="do_action">
             <div className="container">

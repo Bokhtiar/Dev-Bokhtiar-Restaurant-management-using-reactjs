@@ -22,6 +22,7 @@ import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
 import Logout from './Components/Auth/Logout';
 import CartList from './Components/Modules/Cart/CartList';
+import Order from './Components/Modules/Order/Order';
 
 
 export default function App() {
@@ -44,7 +45,7 @@ export default function App() {
 
             {/* product order section */}
             <Route path="/cart" element={<CartList />}></Route>
-            
+            <Route path="/order" element={<Order />}></Route>
             {/* dashboard */}
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
