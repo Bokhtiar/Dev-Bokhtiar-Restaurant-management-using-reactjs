@@ -61,7 +61,7 @@ export default function List() {
 						{
 							categories.map((category, index)=>
 								<p><a className='form-inline h6 ' onClick={() => OnclickcategoryProduct(category.category_id)}> <img className='zoom' height={20} width={20} src="./user/assets/img/specials-3.png" alt="" /> &nbsp; 
-								{category.category_name} &nbsp;&nbsp; (20)
+								{category.category_name} &nbsp;&nbsp;  (20)
 								</a> </p>
 							)
 						}
@@ -79,7 +79,7 @@ export default function List() {
 											<div className='card' style={{width: '12rem', background:'black'}}>
 												<img className="card-img-top container zoom" src="./user/assets/img/specials-3.png" alt="Card image cap"/>
 												<div className="card-body text-center">
-												<a href="#"> {product.product_name}</a> <br />
+												<a href="#"> {product.product_name} c{product.category ? product.category.category_name:''}</a> <br />
 													<a  onClick={()=>cart(product.product_id)} className="btn btn-sm btn-outline-dark text-light">C</a>
 													<a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a>
 													<a href="" className='btn btn-sm btn-outline-dark text-light'><i class="bx bxl-twitter"></i></a>

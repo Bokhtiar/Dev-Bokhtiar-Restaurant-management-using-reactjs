@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom';
 import { getCart } from '../../Service/Cart';
 
 export default function CartList() {
-
+    let user_id = localStorage.getItem('user_id')
+    const [count, setCount] = useState(1)
     const [carts, setCart] = useState([''])
+
     useEffect(()=>{
         CartList();
     },[])
 
     const CartList=async()=>{
-        let CartServiceList = await getCart()
+        let CartServiceList = await getCart(user_id)
         setCart(CartServiceList)
     }
-   console.log('cartss', carts)
-
+   
     const cartDelete =(id)=>{
         axios.get('/cart/delete', {
 			params: {
@@ -23,9 +24,15 @@ export default function CartList() {
 			}
 		})
 		.then(function (response) {
-			return CartList();
+			return CartList()
 		})
     }
+    
+    const increment =(id)=>{
+        
+        setCount(count + 1);
+    }
+
 
   return (
     <div>
@@ -49,7 +56,7 @@ export default function CartList() {
                         <thead>
                             <tr className="">
                                 <td className="text-light">Item</td>
-                                <td className="text-light"></td>
+                                <td className="text-light">Product</td>
                                 <td className="text-light">Price</td>
                                 <td className="text-light">Quantity</td>
                                 <td className="text-light">Total</td>
@@ -65,21 +72,21 @@ export default function CartList() {
                                             <a href=""><img src="./user/assets/img/specials-3.png" height={100} alt=""/></a>
                                         </td>
                                         <td className="cart_description">
-                                            <h4><a href="">{cart.product.product_name}</a></h4>
+                                            <h4><a href="">{cart.product ? cart.product.product_name : 'no data'}</a></h4>
                                             <p>Web ID: 1089772</p>
                                         </td>
                                         <td className="">
-                                            <p className='text-light'>$ {cart.product.price}</p>
+                                            <p className='text-light'>${cart.product ? cart.product. price : 'no data'}</p>
                                         </td>
                                         <td className="cart_quantity">
                                             <div className="cart_quantity_button">
-                                                <a className="cart_quantity_up" href=""> + </a>
-                                                <input className="cart_quantity_input" type="text" name="quantity" value={cart.quantity} autocomplete="off" size="2"/>
-                                                <a className="cart_quantity_down" href=""> - </a>
+                                                <button className="cart_quantity_up" onClick={()=>increment(cart.cart_id)}> + </button>
+                                                <input className="cart_quantity_input" type="text" name="quantity" value={count} autocomplete="off" size="2"/>
+                                                <button className="cart_quantity_down" href=""> - </button>
                                             </div>
                                         </td>
                                         <td className="cart_total">
-                                            <p className="text-light">${cart.product.price * cart.quantity}</p>
+                                            <p className="text-light">${cart.product ? cart.product.price : '0' * cart.quantity}</p>
                                         </td>
                                         <td className="cart_delete">
                                             <button onClick={()=>cartDelete(cart.cart_id)} className="cart_quantity_delete" href=""><i className="fa fa-times"></i></button>
