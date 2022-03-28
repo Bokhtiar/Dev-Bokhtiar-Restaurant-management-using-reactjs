@@ -32,6 +32,7 @@ export default function CartList() {
         
         setCount(count + 1);
     }
+    let total = 0;
 
 
   return (
@@ -66,7 +67,7 @@ export default function CartList() {
                         <tbody>
                             {
                                 carts.map((cart, index)=>
-
+                                    
                                     <tr>
                                         <td className="cart_product">
                                             <a href=""><img src="./user/assets/img/specials-3.png" height={100} alt=""/></a>
@@ -81,16 +82,17 @@ export default function CartList() {
                                         <td className="cart_quantity">
                                             <div className="cart_quantity_button">
                                                 <button className="cart_quantity_up" onClick={()=>increment(cart.cart_id)}> + </button>
-                                                <input className="cart_quantity_input" type="text" name="quantity" value={count} autocomplete="off" size="2"/>
+                                                <input className="cart_quantity_input" type="text" name="quantity" value={cart.quantity} autocomplete="off" size="2"/>
                                                 <button className="cart_quantity_down" href=""> - </button>
                                             </div>
                                         </td>
                                         <td className="cart_total">
-                                            <p className="text-light">${cart.product ? cart.product.price : '0' * cart.quantity}</p>
+                                            <p className="text-light">${  cart.product.price *  cart.quantity }</p>
                                         </td>
                                         <td className="cart_delete">
                                             <button onClick={()=>cartDelete(cart.cart_id)} className="cart_quantity_delete" href=""><i className="fa fa-times"></i></button>
                                         </td>
+                                        {total += cart.product.price *  cart.quantity }
                                     </tr>
                                 )
                             }
@@ -101,86 +103,39 @@ export default function CartList() {
                     </table>
                 </div>
             </div>
-            <Link to={'/order'}>Order Place</Link>
         </section> 
          
 
-        <section id="do_action">
-            <div className="container">
-                <div className="heading">
-                    <h3>What would you like to do next?</h3>
-                    <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
-                </div>
-                <div className="row">
-                    <div className="col-sm-6">
-                        <div className="chose_area">
-                            <ul className="user_option">
-                                <li>
-                                    <input type="checkbox"/>
-                                    <label>Use Coupon Code</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox"/>
-                                    <label>Use Gift Voucher</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox"/>
-                                    <label>Estimate Shipping & Taxes</label>
-                                </li>
-                            </ul>
-                            <ul className="user_info">
-                                <li className="single_field">
-                                    <label>Country:</label>
-                                    <select>
-                                        <option>United States</option>
-                                        <option>Bangladesh</option>
-                                        <option>UK</option>
-                                        <option>India</option>
-                                        <option>Pakistan</option>
-                                        <option>Ucrane</option>
-                                        <option>Canada</option>
-                                        <option>Dubai</option>
-                                    </select>
-                                    
-                                </li>
-                                <li className="single_field">
-                                    <label>Region / State:</label>
-                                    <select>
-                                        <option>Select</option>
-                                        <option>Dhaka</option>
-                                        <option>London</option>
-                                        <option>Dillih</option>
-                                        <option>Lahore</option>
-                                        <option>Alaska</option>
-                                        <option>Canada</option>
-                                        <option>Dubai</option>
-                                    </select>
-                                
-                                </li>
-                                <li className="single_field zip-field">
-                                    <label>Zip Code:</label>
-                                    <input type="text"/>
-                                </li>
-                            </ul>
-                            <a className="btn btn-default update" href="">Get Quotes</a>
-                            <a className="btn btn-default check_out" href="">Continue</a>
-                        </div>
-                    </div>
-                    <div className="col-sm-6">
-                        <div className="total_area">
-                            <ul>
-                                <li>Cart Sub Total <span>$59</span></li>
-                                <li>Eco Tax <span>$2</span></li>
-                                <li>Shipping Cost <span>Free</span></li>
-                                <li>Total <span>$61</span></li>
-                            </ul>
-                                <a className="btn btn-default update" href="">Update</a>
-                                <a className="btn btn-default check_out" href="">Check Out</a>
-                        </div>
-                    </div>
+        <div className='container'>
+            <div className="row">
+                <div className="col-sm-12 col-lg-8 col-md-8"></div>
+                <div className="col-sm-12 col-lg-4 col-md-4">
+                <table class="table table-sm text-light border">
+                    <tbody>
+                        <tr>
+                            <td className='float-left'>Cart Sub Total</td>
+                            <td></td>
+                            <td></td>
+                            <td className='float-right'>${total}</td>
+                        </tr>
+                        <tr>
+                            <td className='float-left'>Shipping Cost</td>
+                            <td></td>
+                            <td></td>
+                            <td className='float-right'>$5</td>
+                        </tr>
+                        <tr>
+                            <td className='float-left'>Total</td>
+                            <td></td>
+                            <td></td>
+                            <td className='float-right'>${total + 5}</td>
+                        </tr>
+                    </tbody>
+                    </table>
                 </div>
             </div>
-        </section>
+        </div>
+        <Link to={'/order'}>Order Place</Link>
     </div>
   )
 }
