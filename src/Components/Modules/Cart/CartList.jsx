@@ -87,12 +87,12 @@ export default function CartList() {
                                             </div>
                                         </td>
                                         <td className="cart_total">
-                                            <p className="text-light">${  cart.product.price *  cart.quantity }</p>
+                                            <p className="text-light">${  cart.product ? cart.product. price : '0' *  cart.quantity }</p>
                                         </td>
                                         <td className="cart_delete">
                                             <button onClick={()=>cartDelete(cart.cart_id)} className="cart_quantity_delete" href=""><i className="fa fa-times"></i></button>
                                         </td>
-                                        {total += cart.product.price *  cart.quantity }
+                                        <p style={{display: "none"}} >{total += cart.product ? cart.product. price : '0' *  cart.quantity }</p>
                                     </tr>
                                 )
                             }
@@ -132,10 +132,15 @@ export default function CartList() {
                         </tr>
                     </tbody>
                     </table>
+                    <p className='float-right'>
+                    <Link className='btn btn-sm btn-primary' to={'/order'}>Order Place</Link> &nbsp;
+                    <Link className='btn btn-sm btn-success' to={'/'}>Countine Shoping</Link>
+                    </p>
                 </div>
             </div>
         </div>
-        <Link to={'/order'}>Order Place</Link>
+        
+        
     </div>
   )
 }
