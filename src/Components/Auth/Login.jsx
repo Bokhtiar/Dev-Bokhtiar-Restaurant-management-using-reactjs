@@ -24,7 +24,7 @@ export default function Login() {
             localStorage.setItem('email', response.data.user.email);
             if(localStorage.getItem('token')){
                 console.log('success');
-                     
+               
             }else{
                
             }
